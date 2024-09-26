@@ -1,215 +1,253 @@
 /* app shell CSS */
+
+/* Define CSS variables for consistent color and styling throughout the app */
 :root {
-  --primary: #31a9e1;
-  --gray: #ececec;
-  --whitesmoke: #f5f5f5;
-  --dark: #222;
-  --monoaki: #272822;
-  --navbar-height: 50px;
+  --primary: #31a9e1; /* Primary color for UI elements */
+  --gray: #ececec; /* Light gray color */
+  --whitesmoke: #f5f5f5; /* Soft white color for backgrounds */
+  --dark: #222; /* Dark color for text */
+  --monoaki: #272822; /* Background color for the app */
+  --navbar-height: 50px; /* Fixed height for the navbar */
 }
 
+/* Basic styles for the body element */
 body {
-  margin: 0;
-  background-color: var(--monoaki);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  margin: 0; /* Remove default margin */
+  background-color: var(--monoaki); /* Set background color */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; /* Define font stack */
 }
 
+/* Style for h1 headers */
 h1 {
-  font-size: 22px;
+  font-size: 22px; /* Set font size */
 }
 
+/* Styles for the navigation bar */
 #navbar {
-  height: var(--navbar-height);
-  background-color: var(--primary);
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: white;
-  font-size: 22px;
-  font-weight: 550;
-  letter-spacing: 0.9px;
+  height: var(--navbar-height); /* Set navbar height */
+  background-color: var(--primary); /* Navbar background color */
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  display: flex; /* Use flexbox layout */
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Space items evenly */
+  color: white; /* Text color in navbar */
+  font-size: 22px; /* Font size for navbar items */
+  font-weight: 550; /* Font weight */
+  letter-spacing: 0.9px; /* Letter spacing */
 }
 
+/* Styles for the brand image in the navbar */
 .navbar-brand img {
-  padding-top: 10px;
+  padding-top: 10px; /* Add top padding */
 }
 
+/* Styles for the loading spinner */
 .loading-spinner {
-  animation-duration: 0.75s;
-  animation-iteration-count: infinite;
-  animation-name: rotate-forever;
-  animation-timing-function: linear;
-  height: 30px;
-  width: 30px;
-  border: 3px solid var(--primary);
-  border-right-color: transparent;
-  border-radius: 50%;
+  animation-duration: 0.75s; /* Duration of rotation */
+  animation-iteration-count: infinite; /* Continuous rotation */
+  animation-name: rotate-forever; /* Reference to keyframes */
+  animation-timing-function: linear; /* Linear animation timing */
+  height: 30px; /* Height of spinner */
+  width: 30px; /* Width of spinner */
+  border: 3px solid var(--primary); /* Border color */
+  border-right-color: transparent; /* Hide right border */
+  border-radius: 50%; /* Make it circular */
 }
 
+/* Center loading container */
 .loading-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - var(--navbar-height));
+  display: flex; /* Use flexbox layout */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: calc(100vh - var(--navbar-height)); /* Full height minus navbar */
 }
 
+/* Hide install button if it has the 'hidden' class */
 #buttonInstall.hidden {
-  display: none;
+  display: none; /* Do not display the button */
 }
 
+/* Keyframes for spinner rotation animation */
 @keyframes rotate-forever {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(0deg); /* Start at 0 degrees */
   }
-
   100% {
-    transform: rotate(360deg);
+    transform: rotate(360deg); /* End at 360 degrees */
   }
 }
 
+/* Styles for app update notifications */
 .app-update {
-  display: none;
-  position: absolute;
-  right: 10px;
+  display: none; /* Hidden by default */
+  position: absolute; /* Position relative to the nearest positioned ancestor */
+  right: 10px; /* Align to the right */
 }
 
+/* Show app update notification */
 .app-update.show {
-  display: block;
+  display: block; /* Display the notification */
 }
 
+/* Styles for navigation buttons */
 .nav-btn {
-  margin: 25px;
+  margin: 25px; /* Add margin */
 }
 
+/* Base button styles */
 .btn {
-  text-align: center;
-  display: inline-block;
-  padding: 0.5rem 1.2rem;
-  margin: 0;
-  text-decoration: none;
-  font-size: 1rem;
-  border-radius: 0.3rem;
-  border: 1px solid transparent;
-  outline: none;
-  color: #1a1a1a;
-  background-color: #aeaeae;
-  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  text-align: center; /* Center text */
+  display: inline-block; /* Inline block for buttons */
+  padding: 0.5rem 1.2rem; /* Padding for button */
+  margin: 0; /* Remove margin */
+  text-decoration: none; /* Remove underline */
+  font-size: 1rem; /* Set font size */
+  border-radius: 0.3rem; /* Rounded corners */
+  border: 1px solid transparent; /* Transparent border */
+  outline: none; /* Remove outline */
+  color: #1a1a1a; /* Text color */
+  background-color: #aeaeae; /* Default background color */
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out; /* Smooth transition for hover effects */
 }
 
+/* Hover effects for buttons */
 .btn:hover {
-  background-color: #cecece;
-  cursor: pointer;
+  background-color: #cecece; /* Change background color on hover */
+  cursor: pointer; /* Change cursor to pointer */
 }
 
+/* Styles for squared buttons */
 .btn.btn-squared {
-  border-radius: 0;
+  border-radius: 0; /* No rounded corners */
 }
 
+/* Styles for small buttons */
 .btn.btn-sm {
-  font-size: 0.85rem;
-  padding: 0.3rem 0.9rem;
+  font-size: 0.85rem; /* Smaller font size */
+  padding: 0.3rem 0.9rem; /* Smaller padding */
 }
 
+/* Styles for large buttons */
 .btn.btn-lg {
-  font-size: 1.25rem;
-  padding: 0.8rem 1.4rem;
+  font-size: 1.25rem; /* Larger font size */
+  padding: 0.8rem 1.4rem; /* Larger padding */
 }
 
+/* Styles for full-width buttons */
 .btn.btn-block {
-  width: 100%;
-  display: block;
-  text-align: center;
+  width: 100%; /* Full width */
+  display: block; /* Block display */
+  text-align: center; /* Center text */
 }
 
+/* Primary button styles */
 .btn.btn-primary {
-  background-color: #2d3e50;
-  color: #d9e9e8;
+  background-color: #2d3e50; /* Dark background */
+  color: #d9e9e8; /* Light text color */
 }
 
+/* Hover effects for primary buttons */
 .btn.btn-primary:hover {
-  background-color: #57779a;
+  background-color: #57779a; /* Change background on hover */
 }
 
+/* Danger button styles */
 .btn.btn-danger {
-  background-color: #e64c66;
-  color: #ffffff;
+  background-color: #e64c66; /* Red background */
+  color: #ffffff; /* White text color */
 }
 
+/* Hover effects for danger buttons */
 .btn.btn-danger:hover {
-  background-color: #ee8294;
+  background-color: #ee8294; /* Lighter red on hover */
 }
 
+/* Info button styles */
 .btn.btn-info {
-  background-color: #1bbc9b;
-  color: #ffffff;
+  background-color: #1bbc9b; /* Teal background */
+  color: #ffffff; /* White text color */
 }
 
+/* Hover effects for info buttons */
 .btn.btn-info:hover {
-  background-color: #31e1bd;
+  background-color: #31e1bd; /* Lighter teal on hover */
 }
 
+/* Light button styles */
 .btn.btn-light {
-  background-color: #d9e9e8;
-  color: #1a1a1a;
+  background-color: #d9e9e8; /* Light background */
+  color: #1a1a1a; /* Dark text color */
 }
 
+/* Hover effects for light buttons */
 .btn.btn-light:hover {
-  background-color: #84b8b4;
+  background-color: #84b8b4; /* Darker light on hover */
 }
 
+/* Dark button styles */
 .btn.btn-dark {
-  background-color: #1a1a1a;
-  color: #d9e9e8;
+  background-color: #1a1a1a; /* Dark background */
+  color: #d9e9e8; /* Light text color */
 }
 
+/* Hover effects for dark buttons */
 .btn.btn-dark:hover {
-  background-color: #5f5f5f;
+  background-color: #5f5f5f; /* Lighter dark on hover */
 }
 
+/* White button styles */
 .btn.btn-white {
-  background-color: #ffffff;
-  color: #1a1a1a;
+  background-color: #ffffff; /* White background */
+  color: #1a1a1a; /* Dark text color */
 }
 
+/* Hover effects for white buttons */
 .btn.btn-white:hover {
-  background-color: #cccccc;
+  background-color: #cccccc; /* Light gray on hover */
 }
 
+/* Black button styles */
 .btn.btn-black {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #000000; /* Black background */
+  color: #ffffff; /* White text color */
 }
 
+/* Hover effects for black buttons */
 .btn.btn-black:hover {
-  background-color: #666666;
+  background-color: #666666; /* Lighter black on hover */
 }
 
+/* Link button styles */
 .btn.btn-link {
-  background-color: #1b89bc;
-  color: #ffffff;
+  background-color: #1b89bc; /* Blue background */
+  color: #ffffff; /* White text color */
 }
 
+/* Hover effects for link buttons */
 .btn.btn-link:hover {
-  background-color: #31a9e1;
+  background-color: #31a9e1; /* Lighter blue on hover */
 }
 
+/* Media queries for responsiveness */
 @media only screen and (max-width: 600px) {
+  /* Hide navigation buttons on smaller screens */
   .nav-btn {
-    display: none;
+    display: none; /* Do not display navigation buttons */
   }
 
+  /* Hide brand name on smaller screens */
   .navbar-brand {
-    display: none;
+    display: none; /* Do not display brand name */
   }
 
+  /* Center navbar items on smaller screens */
   #navbar {
-    justify-content: center;
+    justify-content: center; /* Center items */
   }
 
+  /* Reduce h1 font size on smaller screens */
   h1 {
-    font-size: 18px;
+    font-size: 18px; /* Smaller font size */
   }
 }
+

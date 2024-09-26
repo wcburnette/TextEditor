@@ -1,3 +1,4 @@
+// Define a multi-line string that contains a banner header
 const header = `
 /*
        _____  ____________
@@ -9,4 +10,6 @@ just another text editor
 */                          
 `;
 
-export { header };
+// Export the header variable for use in other modules
+export { header }; // Allows other files to import this header string
+

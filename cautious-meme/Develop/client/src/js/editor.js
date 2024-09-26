@@ -1,42 +1,48 @@
 // Import methods to save and get data from the indexedDB database in './database.js'
-import { getDb, putDb } from './database';
-import { header } from './header';
+import { getDb, putDb } from './database'; // Import the database functions for data retrieval and storage
+import { header } from './header'; // Import the header content as a fallback
 
+// Define the main class for the editor functionality
 export default class {
   constructor() {
+    // Retrieve previously saved content from localStorage
     const localData = localStorage.getItem('content');
 
-    // check if CodeMirror is loaded
+    // Check if CodeMirror is loaded; if not, throw an error
     if (typeof CodeMirror === 'undefined') {
-      throw new Error('CodeMirror is not loaded');
+      throw new Error('CodeMirror is not loaded'); // Alert if CodeMirror is not available
     }
 
+    // Initialize the CodeMirror editor with specific options
     this.editor = CodeMirror(document.querySelector('#main'), {
-      value: '',
-      mode: 'javascript',
-      theme: 'monokai',
-      lineNumbers: true,
-      lineWrapping: true,
-      autofocus: true,
-      indentUnit: 2,
-      tabSize: 2,
+      value: '', // Initial content of the editor
+      mode: 'javascript', // Set the syntax highlighting to JavaScript
+      theme: 'monokai', // Use the Monokai theme for the editor
+      lineNumbers: true, // Show line numbers on the left
+      lineWrapping: true, // Enable line wrapping for long lines
+      autofocus: true, // Automatically focus the editor on load
+      indentUnit: 2, // Set the indentation size to 2 spaces
+      tabSize: 2, // Set the tab size to 2 spaces
     });
 
-    // When the editor is ready, set the value to whatever is stored in indexeddb.
-    // Fall back to localStorage if nothing is stored in indexeddb, and if neither is available, set the value to header.
+    // When the editor is ready, load data from IndexedDB
+    // If no data is found, fall back to localStorage; if neither is available, use the header content
     getDb().then((data) => {
-      console.info('Loaded data from IndexedDB, injecting into editor');
-      this.editor.setValue(data || localData || header);
+      console.info('Loaded data from IndexedDB, injecting into editor'); // Log loading action
+      this.editor.setValue(data || localData || header); // Set the editor's value to the loaded data
     });
 
+    // Event listener for changes in the editor
     this.editor.on('change', () => {
-      localStorage.setItem('content', this.editor.getValue());
+      // Save the current value of the editor to localStorage
+      localStorage.setItem('content', this.editor.getValue()); // Update localStorage with the current content
     });
 
-    // Save the content of the editor when the editor itself is loses focus
+    // Event listener for when the editor loses focus
     this.editor.on('blur', () => {
-      console.log('The editor has lost focus');
-      putDb(localStorage.getItem('content'));
+      console.log('The editor has lost focus'); // Log when the editor loses focus
+      putDb(localStorage.getItem('content')); // Save the current content to IndexedDB
     });
   }
 }
+

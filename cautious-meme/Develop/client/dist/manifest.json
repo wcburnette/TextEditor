@@ -1,0 +1,22 @@
+{
+  "icons": [
+    {
+      "src": "auto/icon_512x512.3ca11a97eb7d90b61fc3db0f3c5dcdb6.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "auto/icon_192x192.1efd8d2a5218c9516adb7d6ff7907ac1.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "name": "Just Another Text Editor",
+  "short_name": "JATE",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "A text editor that works offline.",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff"
+}
