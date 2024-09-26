@@ -1,0 +1,10 @@
+{
+  "name": "Just Another Text Editor",
+  "short_name": "JATE",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "A text editor that works offline.",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff"
+}

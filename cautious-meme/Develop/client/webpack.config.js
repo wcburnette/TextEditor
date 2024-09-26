@@ -20,8 +20,11 @@ module.exports = () => {
         inject: true,
       }),
       new InjectManifest({
-        swSrc: './src-sw.js',
-        swDest: 'src-sw.js',
+        swSrc: './src-sw.js', // Your service worker source
+        swDest: 'src-sw.js', // Output location
+        include: [/\.html$/, /\.js$/, /\.css$/, /\.png$/, /\.jpg$/], // Assets to precache
+        // Ensure it does not run multiple times
+        // For example, you can check if the service worker has already been registered.
       }),
       new WebpackPwaManifest({
         name: 'Just Another Text Editor',
@@ -31,7 +34,19 @@ module.exports = () => {
         background_color: '#ffffff',
         theme_color: '#ffffff',
         display: 'standalone',
-        icon: './assets/icons/icon_192x192.png', // Path to your app icon
+        icons: [
+          {
+            src: path.resolve(__dirname, 'src/icons/icon-192x192.png'),
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: path.resolve(__dirname, 'src/icons/icon-512x512.png'),
+            sizes: '512x512',
+            type: 'image/png',
+          },
+        ].forEach(icon => console.log(`Processing icon: ${icon.src}`)),
+        
       }),
     ],
     module: {
@@ -55,4 +70,3 @@ module.exports = () => {
     },
   };
 };
-
